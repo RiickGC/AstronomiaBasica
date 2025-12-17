@@ -7,4 +7,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  base: '/newsletter/',
+  build: {
+    outDir: 'ebook/dist/newsletter',
+    emptyOutDir: true,
+  }
 });

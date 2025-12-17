@@ -4,7 +4,7 @@ import TypewriterText from './TypewriterText';
 export default function HeroSection() {
   useEffect(() => {
     // Define a função de callback global que o Mailchimp vai chamar
-    (window as any).jsonpCallback = function(data: any) {
+    (window as any).jsonpCallback = function (data: any) {
       const notification = document.getElementById('mc-notification-message');
       const form = document.getElementById('mc-form-custom') as HTMLFormElement;
 
@@ -25,7 +25,7 @@ export default function HeroSection() {
         }
       } else {
         notification.style.color = '#f87171'; // Vermelho
-        
+
         // Deixa as mensagens de erro mais amigáveis
         let msg = data.msg;
         if (msg.includes('is already subscribed')) {
@@ -46,8 +46,9 @@ export default function HeroSection() {
     const fetchLatestCampaign = async () => {
       try {
         // Isso vai chamar o arquivo 'api/get-latest-campaign.js'
-        const response = await fetch('/api/get-latest-campaign'); 
-        
+        // Isso vai chamar a Cloud Function
+        const response = await fetch('https://us-central1-astronomiabasica.cloudfunctions.net/getLatestCampaign');
+
         if (response.ok) {
           const data = await response.json();
           setLatestCampaignUrl(data.url);
@@ -76,7 +77,7 @@ export default function HeroSection() {
 
     // Limpa notificações antigas
     notification.innerHTML = '';
-    
+
     if (!emailInput || !emailInput.value) {
       notification.style.color = '#f87171';
       notification.innerHTML = 'Por favor, insira um email.';
@@ -106,21 +107,21 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
-          Descobertas, curiosidades cósmicas e eventos astronômicos explicados em linguagem humana — direto no seu e-mail, sem custo.
+            Descobertas, curiosidades cósmicas e eventos astronômicos explicados em linguagem humana — direto no seu e-mail, sem custo.
           </p>
 
-          <form 
-            action="https://outlook.us10.list-manage.com/subscribe/post?u=b66729f8ab667318b8358726f&amp;id=7bccab21a8&amp;f_id=00f1e8e3f0" 
-            method="post" 
+          <form
+            action="https://outlook.us10.list-manage.com/subscribe/post?u=b66729f8ab667318b8358726f&amp;id=7bccab21a8&amp;f_id=00f1e8e3f0"
+            method="post"
             id="mc-form-custom"
             className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto"
             onSubmit={handleSubmit}
           >
-            <input 
-              type="email" 
-              name="EMAIL" 
-              className="flex-1 px-4 py-3 bg-black/50 border border-purple-500 rounded-lg focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/30 transition-all text-white placeholder-white/50" 
-              placeholder="coloque seu email cósmico" 
+            <input
+              type="email"
+              name="EMAIL"
+              className="flex-1 px-4 py-3 bg-black/50 border border-purple-500 rounded-lg focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/30 transition-all text-white placeholder-white/50"
+              placeholder="coloque seu email cósmico"
               required
             />
 
@@ -128,8 +129,8 @@ export default function HeroSection() {
               <input type="text" name="b_b66729f8ab667318b8358726f_7bccab21a8" tabIndex={-1} value="" />
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               name="subscribe"
               className="btn-cosmic px-8 py-3 rounded-lg font-medium text-white flex items-center justify-center gap-2 whitespace-nowrap"
             >
@@ -140,7 +141,7 @@ export default function HeroSection() {
           <div id="mc-notification-message" style={{ marginTop: '15px', textAlign: 'center', color: 'white' }}></div>
 
           <a
-            href={latestCampaignUrl} 
+            href={latestCampaignUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-sm text-yellow-500 hover:text-yellow-400 hover:underline transition-all"

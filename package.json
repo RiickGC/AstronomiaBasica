@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:ebook": "cd ebook && npm run build",
+    "build:hub": "cd hub && npm run build",
+    "build:root": "tsc -b && vite build",
+    "build:all": "npm run build:ebook && npm run build:hub && npm run build:root",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
@@ -16,6 +20,7 @@
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.9.6",
     "vercel": "^48.6.0"
   },
   "devDependencies": {

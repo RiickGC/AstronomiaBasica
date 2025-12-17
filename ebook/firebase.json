@@ -1,0 +1,36 @@
+{
+    "functions": [
+        {
+            "source": "functions",
+            "codebase": "default",
+            "ignore": [
+                "node_modules",
+                ".git",
+                "firebase-debug.log",
+                "firebase-debug.*.log"
+            ]
+        }
+    ],
+    "hosting": {
+        "public": "dist",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "/hub/**",
+                "destination": "/hub/index.html"
+            },
+            {
+                "source": "/newsletter/**",
+                "destination": "/newsletter/index.html"
+            },
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}

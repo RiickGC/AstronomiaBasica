@@ -39,7 +39,7 @@ export default function BenefitsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Por que entrar em nossa newsletter?
+            Por que entrar em nossa newsletter?
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
             Mais do que um simples jornal, uma jornada transformadora pelo universo
@@ -86,7 +86,7 @@ export default function BenefitsSection() {
         {/* CTA adicional */}
         <div className="mt-12 text-center">
           <p className="text-white/80 text-lg font-medium">
-            Mais de 186 mil pessoas já olham pro céu com outros olhos. Junte-se à nossa tripulação cósmica.
+            Mais de 300 mil pessoas já olham pro céu com outros olhos. Junte-se à nossa tripulação cósmica.
           </p>
         </div>
       </div>
