@@ -2,7 +2,11 @@
     "rewrites": [
         {
             "source": "/newsletter/:match*",
-            "destination": "https://SEU-PROJETO-NEWSLETTER.vercel.app/:match*"
+            "destination": "/newsletter/dist/:match*"
+        },
+        {
+            "source": "/newsletter",
+            "destination": "/newsletter/dist/index.html"
         },
         {
             "source": "/(.*)",
