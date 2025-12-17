@@ -9,7 +9,7 @@ export default defineConfig({
   },
   base: '/newsletter/',
   build: {
-    outDir: 'ebook/dist/newsletter',
+    outDir: 'dist',
     emptyOutDir: true,
   }
 });
