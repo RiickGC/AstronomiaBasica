@@ -1,12 +1,12 @@
 {
     "rewrites": [
-      {
-        "source": "/api/(.*)",
-        "destination": "/api/$1"
-      },
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
+        {
+            "source": "/newsletter/:match*",
+            "destination": "https://SEU-PROJETO-NEWSLETTER.vercel.app/:match*"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
     ]
-  }
+}

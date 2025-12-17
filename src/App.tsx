@@ -1,28 +1,22 @@
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import BenefitsSection from './components/BenefitsSection';
-import ProcessSection from './components/ProcessSection';
-import CommitmentSection from './components/CommitmentSection';
-import FAQSection from './components/FAQSection';
-import CTASection from './components/CTASection';
-import Footer from './components/Footer';
-import ShootingStars from './components/ShootingStars';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Force deploy trigger
+import Home from './pages/Home';
+import EbooksShowcase from './pages/EbooksShowcase';
+
+import Reader from './pages/Reader';
+import SalesPage from './pages/SalesPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-black">
-      <ShootingStars />
-      <Header />
-      <main>
-        <HeroSection />
-        <BenefitsSection />
-        <ProcessSection />
-        <CommitmentSection />
-        <FAQSection />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/vitrine" element={<EbooksShowcase />} />
+        <Route path="/pvastronomiabasica" element={<SalesPage />} />
+        <Route path="/leitor/:bookId" element={<Reader />} />
+        <Route path="/leitor/:bookId/:chapterId" element={<Reader />} />
+      </Routes>
+    </Router>
   );
 }
 
